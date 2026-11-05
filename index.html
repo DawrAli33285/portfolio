@@ -194,9 +194,9 @@ section[id] { scroll-margin-top: 96px; }
 
 /* stats */
 .stats-band { padding-block: clamp(40px, 6vw, 72px); }
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px 40px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 28px 32px; }
 .stat { border-top: 2px solid var(--fg); padding-top: 16px; min-width: 0; }
-.stat b { display: block; font-family: var(--font-display); font-weight: 800; font-size: clamp(64px, 10vw, 128px); line-height: 0.9; letter-spacing: -0.04em; color: var(--accent); font-variant-numeric: tabular-nums; }
+.stat b { display: block; font-family: var(--font-display); font-weight: 800; font-size: clamp(48px, 6.4vw, 88px); line-height: 0.9; letter-spacing: -0.04em; color: var(--accent); font-variant-numeric: tabular-nums; }
 .stat span { display: block; margin-top: 12px; color: var(--m); font-size: 15px; max-width: 28ch; }
 
 /* shared section head */
@@ -272,6 +272,57 @@ a.tile:hover { background: var(--accent); color: var(--accent-ink); border-color
 .edu h3 { font-weight: 700; font-size: 22px; letter-spacing: -0.02em; margin-block: 8px; }
 .edu .meta { font: 13px var(--font-mono); color: var(--m); }
 
+
+/* reviews */
+.rating-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin: -12px 0 32px; font: 500 13px var(--font-mono); letter-spacing: 0.06em; color: var(--m); }
+.stars { color: var(--accent2); letter-spacing: 3px; font-size: 18px; }
+.rev-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.review { display: flex; flex-direction: column; gap: 18px; background: var(--surface); color: var(--fg); border: 1px solid var(--l); border-radius: 16px; padding: 26px; min-width: 0; margin: 0; transition: background-color 0.3s, color 0.3s, border-color 0.3s, translate 0.25s; }
+.review:hover { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); translate: 0 -4px; --m: var(--accent-ink2); --ey: var(--accent-ink); }
+.review .stars { transition: color 0.3s; }
+.review:hover .stars { color: var(--accent-ink); }
+.review blockquote { margin: 0; font-size: 16px; line-height: 1.65; flex: 1; }
+.review figcaption { display: flex; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid var(--l); }
+.rv-av { display: grid; place-items: center; width: 40px; height: 40px; flex: none; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font: 800 16px var(--font-display); text-transform: uppercase; transition: background-color 0.3s, color 0.3s; }
+.review:hover .rv-av { background: var(--accent-ink); color: var(--accent); }
+.rv-name { display: block; font-weight: 600; font-size: 15px; overflow-wrap: anywhere; }
+.rv-meta { display: block; font: 12px var(--font-mono); color: var(--m); transition: color 0.3s; }
+
+.rv-shot { align-self: flex-start; font: 600 13px var(--font-body); padding: 8px 14px; border-radius: 999px; border: 1px solid var(--l); background: transparent; color: inherit; cursor: pointer; transition: background-color 0.2s, color 0.2s, border-color 0.2s; }
+.rv-shot:hover { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.review:hover .rv-shot { border-color: var(--accent-ink); }
+.review:hover .rv-shot:hover { background: var(--accent-ink); color: var(--accent); }
+dialog.shot { width: min(94vw, 980px); max-height: 90vh; padding: 0; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); color: var(--fg); overflow: hidden; }
+dialog.shot::backdrop { background: rgba(0, 0, 0, 0.72); }
+.shot-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); font: 12px var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.shot-bar button { font: 600 13px var(--font-body); padding: 7px 14px; border-radius: 999px; border: 0; background: var(--accent); color: var(--accent-ink); cursor: pointer; }
+.shot-body { padding: 16px; overflow: auto; max-height: calc(90vh - 56px); background: #fff; }
+.shot-body img { display: block; width: 100%; height: auto; border-radius: 8px; }
+
+.rev-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); align-items: start; }
+.shotcard { margin: 0; background: #fff; border: 1px solid var(--l); border-radius: 16px; overflow: hidden; min-width: 0; transition: translate 0.25s, border-color 0.3s, box-shadow 0.3s; }
+.shotcard:hover { translate: 0 -4px; border-color: var(--accent); box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.55); }
+.shot-open { display: block; width: 100%; padding: 0; margin: 0; border: 0; background: transparent; cursor: zoom-in; }
+.shot-open img { display: block; width: 100%; height: auto; }
+
+.more { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px 40px; align-items: center; margin-top: 36px; padding: clamp(22px, 3.4vw, 36px); border: 1px solid var(--l); border-radius: 16px; background: var(--surface); }
+.more h3 { font-weight: 800; font-size: clamp(24px, 3.2vw, 36px); letter-spacing: -0.02em; line-height: 1.1; margin-block: 10px 12px; }
+.more p:not(.eyebrow) { color: var(--m); max-width: 56ch; }
+.more-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
+.carousel { overflow: hidden; padding-block: 8px 4px; }
+.stage { --cw: min(78vw, 620px); position: relative; height: calc(var(--cw) * 0.3 + 44px); perspective: 1400px; touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none; }
+.stage:active { cursor: grabbing; }
+.ring { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.ring.drag { transition: none; }
+.rcard { position: absolute; left: 50%; top: 50%; width: var(--cw); margin: 0; background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.6); filter: brightness(0.5); transition: filter 0.5s; }
+.rcard.is-front { filter: none; }
+.rcard .shot-open img { -webkit-user-drag: none; }
+.car-ctl { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 26px; }
+.car-btn { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--l); background: transparent; color: var(--fg); font-size: 20px; line-height: 1; cursor: pointer; transition: background-color 0.2s, color 0.2s, border-color 0.2s; }
+.car-btn:hover { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.car-cap { min-width: 190px; text-align: center; font: 500 13px var(--font-mono); letter-spacing: 0.06em; color: var(--m); }
+.car-hint { margin-top: 12px; text-align: center; font: 12px var(--font-mono); color: var(--m); }
+
 /* contact */
 .contact { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 36px 56px; align-items: start; }
 .contact .avatar { width: 88px; height: 88px; border: 3px solid var(--accent-ink); margin-bottom: 20px; }
@@ -303,6 +354,8 @@ footer.b-1 { padding-block: 28px; border-top: 1px solid var(--line); }
   .hero-top, .hero-low, .feature, .contact, .sec-head, .job { grid-template-columns: minmax(0, 1fr); }
   .portrait { order: -1; width: 180px; margin-left: 28px; }
   .proj { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .more { grid-template-columns: minmax(0, 1fr); }
+  .more-actions { justify-content: flex-start; }
   .count { margin-left: 0; width: 100%; }
 }
 @media (max-width: 760px) {
@@ -328,6 +381,7 @@ footer.b-1 { padding-block: 28px; border-top: 1px solid var(--line); }
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
+      <a href="#reviews">Reviews</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="swatches" role="group" aria-label="Color theme">
@@ -347,7 +401,7 @@ footer.b-1 { padding-block: 28px; border-top: 1px solid var(--line); }
     <div class="in hero-in">
       <div class="hero-top">
         <div class="hero-id">
-          <p class="pill"><span class="dot" style="--dc: var(--accent2)"></span>Fiverr Top Rated Seller</p>
+          <p class="pill"><span class="dot" style="--dc: var(--accent2)"></span>Fiverr Level 2 Seller</p>
           <h1 class="name" aria-label="Dawar Ali Bukhari"><span class="l1" data-split>Dawar Ali</span><span class="l2" data-split>Bukhari</span></h1>
           <p class="role">Full stack web developer</p>
         </div>
@@ -393,8 +447,10 @@ footer.b-1 { padding-block: 28px; border-top: 1px solid var(--line); }
   <section class="band stats-band b-1">
     <div class="in">
       <div class="stats">
-        <div class="stat"><b data-count="3">3</b><span>years of professional experience</span></div>
+        <div class="stat"><b data-count="100" data-suffix="+">100+</b><span>orders completed on Fiverr</span></div>
+        <div class="stat"><b data-count="90" data-suffix="+">90+</b><span>client reviews on Fiverr</span></div>
         <div class="stat"><b data-count="20" data-suffix="+">20+</b><span>projects delivered, database to deployment</span></div>
+        <div class="stat"><b data-count="3">3</b><span>years of professional experience</span></div>
         <div class="stat"><b data-count="2">2</b><span>years as a Fiverr freelancer</span></div>
       </div>
     </div>
@@ -493,7 +549,7 @@ footer.b-1 { padding-block: 28px; border-top: 1px solid var(--line); }
           <p class="when">2 years</p>
           <div>
             <h3>Freelance Developer</h3>
-            <p class="org">Fiverr · Top Rated Seller</p>
+            <p class="org">Fiverr · Level 2 Seller</p>
             <ul>
               <li>Delivered custom web applications for clients, managing project scope, change requests and communication directly with them.</li>
             </ul>
@@ -553,6 +609,17 @@ footer.b-1 { padding-block: 28px; border-top: 1px solid var(--line); }
           <div class="tags"><span class="tag">Video calls</span><span class="tag">Real-time chat</span></div>
         </article>
       </div>
+      <aside class="more">
+        <div>
+          <p class="eyebrow">There is more</p>
+          <h3>These are only a few of the projects I have built.</h3>
+          <p>I have completed 100+ orders for clients on Fiverr and earned 90+ reviews. The list above is a selection, not the full picture. If you want to see work close to what you need, ask and I will send relevant examples.</p>
+        </div>
+        <div class="more-actions">
+          <a class="btn primary" href="#contact">Ask for relevant samples <span class="arr">↗</span></a>
+          <a class="btn" href="#reviews">Read the reviews</a>
+        </div>
+      </aside>
     </div>
   </section>
 
@@ -583,6 +650,43 @@ footer.b-1 { padding-block: 28px; border-top: 1px solid var(--line); }
     </div>
   </section>
 
+  <section class="band b-1" id="reviews">
+    <div class="in">
+      <div class="sec-head">
+        <p class="eyebrow">Client reviews</p>
+        <h2>What clients say.</h2>
+      </div>
+      <p class="rating-line"><span class="stars" aria-hidden="true">★★★★★</span><span>90+ reviews on Fiverr · a few of them below</span></p>
+      <div class="carousel">
+        <div class="stage" id="car" tabindex="0" role="group" aria-roledescription="carousel" aria-label="Fiverr review screenshots. Use the left and right arrow keys to rotate, Enter to enlarge.">
+          <div class="ring" id="ring">
+          <figure class="rcard" data-who="crxxuu">
+            <button type="button" class="shot-open" tabindex="-1" data-shot="reviews/review-1.webp" data-who="crxxuu" aria-label="Enlarge Fiverr review by crxxuu"><img src="reviews/review-1.webp" alt="Fiverr 5-star review by crxxuu: This is my first website and this seller made it extremely easy to understand even though what we are working on could be considered high-level. I am thankful…" width="960" height="216" draggable="false"></button>
+          </figure>
+          <figure class="rcard" data-who="susolam">
+            <button type="button" class="shot-open" tabindex="-1" data-shot="reviews/review-2.webp" data-who="susolam" aria-label="Enlarge Fiverr review by susolam"><img src="reviews/review-2.webp" alt="Fiverr 5-star review by susolam: Dawar truly shines. His code expertise and attention to detail exhibit high professionalism, making the quality of his work top-notch. Working with Dawar is a breeze, thanks to his proactive communication and QUICK responsiveness." width="955" height="241" draggable="false"></button>
+          </figure>
+          <figure class="rcard" data-who="abuchan19">
+            <button type="button" class="shot-open" tabindex="-1" data-shot="reviews/review-3.webp" data-who="abuchan19" aria-label="Enlarge Fiverr review by abuchan19"><img src="reviews/review-3.webp" alt="Fiverr 5-star review by abuchan19: Amazing experience from start to finish. Dawar brought my True Sky Psychology website to life exactly as I envisioned. Communication was fast, clear, and effortless,…" width="957" height="207" draggable="false"></button>
+          </figure>
+          <figure class="rcard" data-who="nuburooj">
+            <button type="button" class="shot-open" tabindex="-1" data-shot="reviews/review-4.webp" data-who="nuburooj" aria-label="Enlarge Fiverr review by nuburooj"><img src="reviews/review-4.webp" alt="Fiverr 5-star review by nuburooj: Incredibly professional and proactive. He went above and beyond according to my instructions, and don’t even get me started on the patience. Very cooperative and will cater to your needs. 10/10 recommend." width="957" height="219" draggable="false"></button>
+          </figure>
+          <figure class="rcard" data-who="wylhemm03">
+            <button type="button" class="shot-open" tabindex="-1" data-shot="reviews/review-5.webp" data-who="wylhemm03" aria-label="Enlarge Fiverr review by wylhemm03"><img src="reviews/review-5.webp" alt="Fiverr 5-star review by wylhemm03: This guy is the real deal! The best freaking frontend dev you can ask for, we asked him to develop the frontend using some brand new frameworks and he learned…" width="970" height="207" draggable="false"></button>
+          </figure>
+          </div>
+        </div>
+        <div class="car-ctl">
+          <button type="button" class="car-btn" id="car-prev" aria-label="Previous review">←</button>
+          <span class="car-cap" id="car-cap"></span>
+          <button type="button" class="car-btn" id="car-next" aria-label="Next review">→</button>
+        </div>
+        <p class="car-hint">Drag or use the arrows to rotate · click the front card to enlarge</p>
+      </div>
+    </div>
+  </section>
+
   <section class="band b-accent" id="contact">
     <div class="in">
       <div class="contact">
@@ -597,11 +701,6 @@ footer.b-1 { padding-block: 28px; border-top: 1px solid var(--line); }
             <span class="lab">Email</span>
             <span class="val" id="email">dawar4725@gmail.com</span>
             <button class="copy" type="button" data-copy="email">Copy</button>
-          </div>
-          <div class="row">
-            <span class="lab">Phone</span>
-            <span class="val" id="phone">+92 310 5154625</span>
-            <button class="copy" type="button" data-copy="phone">Copy</button>
           </div>
           <div class="row">
             <span class="lab">Live project</span>
@@ -627,6 +726,11 @@ footer.b-1 { padding-block: 28px; border-top: 1px solid var(--line); }
     <span>Rawalpindi, Pakistan</span>
   </div>
 </footer>
+
+<dialog class="shot" id="shot" aria-label="Review screenshot">
+  <div class="shot-bar"><span id="shot-title">Fiverr review</span><button type="button" id="shot-close">Close</button></div>
+  <div class="shot-body"><img id="shot-img" alt="" width="960" height="216"></div>
+</dialog>
 
 <script>
 (function () {
@@ -719,7 +823,7 @@ footer.b-1 { padding-block: 28px; border-top: 1px solid var(--line); }
   }
 
   /* reveal on scroll */
-  var rev = [].slice.call(document.querySelectorAll('.sec-head, .tile, .group, .edu, .job, .proj, .row, .stat, .feature'));
+  var rev = [].slice.call(document.querySelectorAll('.sec-head, .tile, .group, .edu, .job, .proj, .row, .stat, .feature, .carousel'));
   rev.forEach(function (el) {
     el.classList.add('reveal');
     var i = [].indexOf.call(el.parentNode.children, el);
@@ -795,7 +899,7 @@ footer.b-1 { padding-block: 28px; border-top: 1px solid var(--line); }
   chips.forEach(function (c) {
     c.querySelector('small').textContent = projs.filter(function (p) { return matches(p, c.dataset.filter); }).length;
   });
-  countEl.textContent = 'Showing ' + projs.length + ' of ' + projs.length;
+  countEl.textContent = 'Showing ' + projs.length + ' of ' + projs.length + ' selected projects';
   function applyFilter(f) {
     var shown = 0;
     chips.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.filter === f ? 'true' : 'false'); });
@@ -811,7 +915,7 @@ footer.b-1 { padding-block: 28px; border-top: 1px solid var(--line); }
         shown++;
       }
     });
-    countEl.textContent = 'Showing ' + shown + ' of ' + projs.length;
+    countEl.textContent = 'Showing ' + shown + ' of ' + projs.length + ' selected projects';
   }
   chips.forEach(function (c) { c.addEventListener('click', function () { applyFilter(c.dataset.filter); }); });
   document.querySelectorAll('[data-filter-link]').forEach(function (a) {
@@ -850,6 +954,93 @@ footer.b-1 { padding-block: 28px; border-top: 1px solid var(--line); }
   var frame = document.querySelector('.browser');
   tilt(frame && frame.parentNode, frame, 9);
   tilt(document.getElementById('portrait'), document.querySelector('.photo'), 14);
+
+  /* review screenshots: lightbox + 3D carousel */
+  var dlgEl = document.getElementById('shot');
+  var dImg = document.getElementById('shot-img');
+  function openShot(src, who) {
+    dImg.src = src;
+    dImg.alt = 'Screenshot of the Fiverr review by ' + who;
+    document.getElementById('shot-title').textContent = 'Fiverr review · ' + who;
+    if (dlgEl.showModal) dlgEl.showModal(); else window.open(src, '_blank');
+  }
+  document.getElementById('shot-close').addEventListener('click', function () { dlgEl.close(); });
+  dlgEl.addEventListener('click', function (e) { if (e.target === dlgEl) dlgEl.close(); });
+
+  var stage = document.getElementById('car');
+  var ring = document.getElementById('ring');
+  var cards = [].slice.call(ring.querySelectorAll('.rcard'));
+  var capEl = document.getElementById('car-cap');
+  var cn = cards.length, cstep = 360 / cn, angle = 0, R = 400, cur = 0;
+  var dragging = false, moved = 0, sx = 0, sa = 0, hovering = false, inView = true, apTimer;
+  function paintRing() {
+    ring.style.transform = 'translateZ(' + (-R) + 'px) rotateY(' + (-angle) + 'deg)';
+    cur = ((Math.round(angle / cstep) % cn) + cn) % cn;
+    cards.forEach(function (c, i) { c.classList.toggle('is-front', i === cur); });
+    capEl.textContent = (cur + 1) + ' / ' + cn + ' · ' + cards[cur].dataset.who;
+  }
+  function layout() {
+    var w = cards[0].offsetWidth || 400;
+    R = Math.round((w / 2) / Math.tan(Math.PI / cn) * 1.12);
+    cards.forEach(function (c, i) {
+      c.style.transform = 'translate(-50%, -50%) rotateY(' + (i * cstep) + 'deg) translateZ(' + R + 'px)';
+    });
+    paintRing();
+  }
+  function snap() { angle = Math.round(angle / cstep) * cstep; paintRing(); }
+  function go(d) { angle = Math.round(angle / cstep) * cstep + d * cstep; paintRing(); }
+  function autoplay() {
+    clearInterval(apTimer);
+    if (reduce) return;
+    apTimer = setInterval(function () { if (!hovering && !dragging && inView && !document.hidden) go(1); }, 4200);
+  }
+  stage.addEventListener('pointerdown', function (e) {
+    dragging = true; moved = 0; sx = e.clientX; sa = angle; ring.classList.add('drag');
+  });
+  stage.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    var dx = e.clientX - sx;
+    moved = Math.max(moved, Math.abs(dx));
+    angle = sa - dx * 0.3;
+    paintRing();
+  });
+  function endDrag() { if (!dragging) return; dragging = false; ring.classList.remove('drag'); snap(); }
+  stage.addEventListener('pointerup', endDrag);
+  stage.addEventListener('pointercancel', endDrag);
+  stage.addEventListener('pointerleave', function () { hovering = false; endDrag(); });
+  stage.addEventListener('pointerenter', function () { hovering = true; });
+  stage.addEventListener('focus', function () { hovering = true; });
+  stage.addEventListener('blur', function () { hovering = false; });
+  ring.addEventListener('click', function (e) {
+    var c = e.target.closest('.rcard');
+    if (!c || moved > 6) return;
+    var i = cards.indexOf(c);
+    if (i === cur) {
+      var b = c.querySelector('.shot-open');
+      openShot(b.dataset.shot, b.dataset.who);
+    } else {
+      var d = ((i - cur) % cn + cn) % cn;
+      if (d > cn / 2) d -= cn;
+      go(d);
+    }
+  });
+  stage.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+    else if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      var b = cards[cur].querySelector('.shot-open');
+      openShot(b.dataset.shot, b.dataset.who);
+    }
+  });
+  document.getElementById('car-prev').addEventListener('click', function () { go(-1); });
+  document.getElementById('car-next').addEventListener('click', function () { go(1); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { inView = es[0].isIntersecting; }).observe(stage);
+  }
+  layout();
+  autoplay();
+  window.addEventListener('resize', layout);
 
   /* hero node network */
   var hero = document.getElementById('hero');
